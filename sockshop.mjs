@@ -19,7 +19,7 @@ export default async function (context, commands) {
     // 2 | setWindowSize | 1552x840 | 
   // await seleniumElement.manage().window().setRect({ width: 1552, height: 840 })
     // 3 | mouseOver | css=.item:nth-child(1) .img-responsive | 
-  const seleniumElement = await seleniumDriver.findElement(By.linkText('Login'));
+  const seleniumElement = await seleniumDriver.findElement(By.xpath("//a[contains(text(),'Login')]"));
   context.log.info('The element tag is ', await seleniumElement.getTagName());
   await commands.measure.start('SockShopPage');
     // 5 | click | linkText=Login | 
