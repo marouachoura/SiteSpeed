@@ -12,32 +12,7 @@ export default async function (context, commands) {
  
   // We use the driver to find an element
   const seleniumDriver = context.selenium.driver;
- 
-  // To navigate to a new page it is best to use our navigation commands
-  // so the script waits until the page is loaded
-  await commands.navigate('https://front-end-autoinstrument-smetest.apps.aps.lab/');
- 
-  // Lets use Selenium to find the Documentation link
-  const seleniumElement = await seleniumDriver.findElement(By.css(".item:nth-child(1) .img-responsive"));
-  
-  // So now we actually got a Selenium WebElement 
-  // https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebElement.html
-  context.log.info('The element tag is ', await seleniumElement.getTagName());
- 
-  // We then use our command to start a measurement
-  await commands.measure.start('DocumentationPage');
- 
-  // Use the Selenium WebElement and click on it
-  await seleniumElement.click();
-  // We make sure to wait for the new page to load
-  await commands.wait.byPageToComplete();
- 
-  // Stop the measuerment
-  return commands.measure.stop();
-
-
-
-     // Test name: sockshop
+  // Test name: sockshop
     // Step # | name | target | value
     // 1 | open | / | 
     await commands.navigate('https://front-end-autoinstrument-smetest.apps.aps.lab/');
