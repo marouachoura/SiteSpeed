@@ -33,8 +33,8 @@ export default async function (context, commands) {
   await commands.wait.byPageToComplete();
   await seleniumDriver.findElement(By.linkText("Sign In")).click()
   await commands.wait.byPageToComplete();
-  await seleniumDriver.findElement(By.id("stripes-768273790")).click()
-  await seleniumDriver.findElement(By.id("stripes-768273790")).sendKeys("j2ee")
+  await seleniumDriver.findElement(By.name("username")).click()
+  await seleniumDriver.findElement(By.name("username")).sendKeys("j2ee")
   await seleniumDriver.findElement(By.name("signon")).click()
   await commands.wait.byPageToComplete();
   await seleniumDriver.findElement(By.css("#SidebarContent > a:nth-child(1) > img")).click()
