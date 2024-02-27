@@ -15,41 +15,42 @@ export default async function (context, commands) {
   // Test name: sockshop
     // Step # | name | target | value
     // 1 | open | / | 
-    await commands.navigate('https://front-end-autoinstrument-smetest.apps.aps.lab/');
+  await commands.navigate('https://front-end-autoinstrument-smetest.apps.aps.lab/');
     // 2 | setWindowSize | 1552x840 | 
-    await seleniumElement.manage().window().setRect({ width: 1552, height: 840 })
+  // await seleniumElement.manage().window().setRect({ width: 1552, height: 840 })
     // 3 | mouseOver | css=.item:nth-child(1) .img-responsive | 
-    const seleniumElement = await seleniumDriver.findElement(By.linkText('Login'));
-    await commands.measure.start('DocumentationPage');
+  const seleniumElement = await seleniumDriver.findElement(By.linkText('Login'));
+  context.log.info('The element tag is ', await seleniumElement.getTagName());
+  await commands.measure.start('SockShopPage');
     // 5 | click | linkText=Login | 
-    await seleniumElement.findElement(By.linkText('Login')).click()
+  await seleniumElement.click()
     // 6 | click | id=username-modal | 
-    await seleniumElement.findElement(By.id('username-modal')).click()
+  await seleniumElement.findElement(By.id('username-modal')).click()
     // 7 | type | id=username-modal | test
-    await seleniumElement.findElement(By.id('username-modal')).sendKeys('test')
+  await seleniumElement.findElement(By.id('username-modal')).sendKeys('test')
     // 8 | type | id=password-modal | 123456789
-    await seleniumElement.findElement(By.id('password-modal')).sendKeys('123456789')
+  await seleniumElement.findElement(By.id('password-modal')).sendKeys('123456789')
     // 9 | click | css=.text-center:nth-child(3) > .btn | 
-    await seleniumElement.findElement(By.xpath('//button[contains(.,\' Log in\')]')).click()
-    await commands.wait.byPageToComplete();
+  await seleniumElement.findElement(By.xpath('//button[contains(.,\' Log in\')]')).click()
+  await commands.wait.byPageToComplete();
     // 10 | click | css=.dropdown-toggle | 
-    await seleniumElement.findElement(By.xpath('//a[contains(text(),\'Catalogue\')]')).click()
-    await commands.wait.byPageToComplete();
+  await seleniumElement.findElement(By.xpath('//a[contains(text(),\'Catalogue\')]')).click()
+  await commands.wait.byPageToComplete();
     // 11 | click | css=.col-md-4:nth-child(2) .btn-primary | 
-    await seleniumElement.findElement(By.xpath('//div[@id=\'products\']/div[2]/div/div/div/div[2]/a/img')).click()
-    await commands.wait.byPageToComplete();
+  await seleniumElement.findElement(By.xpath('//div[@id=\'products\']/div[2]/div/div/div/div[2]/a/img')).click()
+  await commands.wait.byPageToComplete();
     // 12 | click | id=numItemsInCart | 
-    await seleniumElement.findElement(By.id('buttonCart')).click()
-    await seleniumElement.findElement(By.id('numItemsInCart')).click()
-    await commands.wait.byPageToComplete();
+  await seleniumElement.findElement(By.id('buttonCart')).click()
+  await seleniumElement.findElement(By.id('numItemsInCart')).click()
+  await commands.wait.byPageToComplete();
     // 13 | click | linkText=Update basket | 
-    await seleniumElement.findElement(By.xpath('//div[@id=\'basket-overview\']/a')).click()
-    await commands.wait.byPageToComplete();
-    await seleniumElement.findElement(By.linkText('Update basket')).click()
+  await seleniumElement.findElement(By.xpath('//div[@id=\'basket-overview\']/a')).click()
+  await commands.wait.byPageToComplete();
+  await seleniumElement.findElement(By.linkText('Update basket')).click()
     // 14 | click | id=orderButton | 
-    await seleniumElement.findElement(By.id('orderButton')).click()
-    await commands.wait.byPageToComplete();
+  await seleniumElement.findElement(By.id('orderButton')).click()
+  await commands.wait.byPageToComplete();
     // 16 | click | linkText=Logout | 
-    await seleniumElement.findElement(By.linkText('Logout')).click()
-    return commands.measure.stop();
+  await seleniumElement.findElement(By.linkText('Logout')).click()
+  return commands.measure.stop();
 }
