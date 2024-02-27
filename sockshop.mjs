@@ -25,9 +25,10 @@ export default async function (context, commands) {
     // 5 | click | linkText=Login | 
   await seleniumElement.click()
     // 6 | click | id=username-modal | 
-  await seleniumElement.findElement(By.id('username-modal')).click()
+  
+  await seleniumElement.findElement(By.name('username-modal')).click()
     // 7 | type | id=username-modal | test
-  await seleniumElement.findElement(By.id('username-modal')).sendKeys('test')
+  await seleniumElement.findElement(By.name('username-modal')).sendKeys('test')
     // 8 | type | id=password-modal | 123456789
   await seleniumElement.findElement(By.id('password-modal')).click()
   await seleniumElement.findElement(By.id('password-modal')).sendKeys('123456789')
