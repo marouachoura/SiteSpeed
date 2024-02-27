@@ -33,7 +33,9 @@ export default async function (context, commands) {
   await seleniumElement.findElement(By.id('password-modal')).click()
   await seleniumElement.findElement(By.id('password-modal')).sendKeys('123456789')
     // 9 | click | css=.text-center:nth-child(3) > .btn | 
-  await seleniumElement.findElement(By.xpath('//button[contains(.,\' Log in\')]')).click()
+  // await seleniumElement.findElement(By.xpath('//button[contains(.,\' Log in\')]')).click()
+  await seleniumElement.findElement(By.css(".text-center:nth-child(3) > .btn")).click()
+
   await commands.wait.byPageToComplete();
     // 10 | click | css=.dropdown-toggle | 
   await seleniumElement.findElement(By.xpath('//a[contains(text(),\'Catalogue\')]')).click()
