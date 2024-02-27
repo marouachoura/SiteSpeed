@@ -30,7 +30,7 @@ export default async function (context, commands) {
   // await seleniumElement.findElement(By.css('#username-modal')).click()
   
     // 7 | type | id=username-modal | test
-  await seleniumElement. findElement(By.css('#username-modal')).sendKeys("test")
+  await seleniumElement. findElement(By.xpath("//input[@id='username-modal']")).sendKeys("test")
  
     // 8 | type | id=password-modal | 123456789
   // await seleniumElement.findElement(By.id('password-modal')).click()
