@@ -21,11 +21,11 @@ export default async function (context, commands) {
   // 2 | setWindowSize | 1552x840 |
   // await seleniumElement.manage().window().setRect({ width: 1552, height: 840 })
     // 3 | mouseOver | css=.item:nth-child(1) .img-responsive |
-    await commands.measure.start('Click Login');
+ await commands.measure.start('Click Login');
     const seleniumElement = await seleniumDriver.findElement(By.xpath("//a[contains(text(),'Login')]"));
     context.log.info('The element tag is ', await seleniumElement.getTagName());
     // 5 | click | linkText=Login |
-  await seleniumElement.click()
+   await seleniumElement.click()
   await commands.measure.stop();
  
   await commands.measure.start('Click login text field');
