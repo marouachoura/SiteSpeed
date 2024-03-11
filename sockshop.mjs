@@ -1,4 +1,3 @@
-[2/27 6:16 PM] Heni  OUNI
 /**
 * @param {import('browsertime').BrowsertimeContext} context
 * @param {import('browsertime').BrowsertimeCommands} commands
