@@ -14,33 +14,30 @@ export default async function (context, commands) {
   // Test name: sockshop
     // Step # | name | target | value
     // 1 | open | / |
-  const loginUrl = 'https://front-end-autoinstrument-smetest.apps.aps.lab/index.html'; 
-  await commands.measure.start('HomePage', { alias: loginUrl });
-  
-  await commands.navigate('https://front-end-autoinstrument-smetest.apps.aps.lab/');
-  await commands.measure.stop();
+    const loginUrl = 'http://front-end-faro-smetest.apps.aps.lab/';
+    // await commands.measure.start('Login Page', { alias: loginUrl });
+  await commands.navigate('http://front-end-faro-smetest.apps.aps.lab/');
+  await commands.wait.byPageToComplete();
+  const seleniumElement = await seleniumDriver.findElement(By.linkText('Login'));
   // 2 | setWindowSize | 1552x840 |
   // await seleniumElement.manage().window().setRect({ width: 1552, height: 840 })
-    // 3 | mouseOver | css=.item:nth-child(1) .img-responsive |
-    await commands.measure.start('Click Login');
-    const seleniumElement = await seleniumDriver.findElement(By.xpath("//a[contains(text(),'Login')]"));
-    context.log.info('The element tag is ', await seleniumElement.getTagName());
-    // 5 | click | linkText=Login |
+  await commands.measure.start('Click Login');
+
   await seleniumElement.click()
-  await commands.measure.stop();
- 
-  await commands.measure.start('Login Page');
+  await commands.wait.byPageToComplete();
+
     // 6 | click | id=username-modal |
   await seleniumElement.findElement(By.xpath("//input[@id='username-modal']")).click()
- 
-  await seleniumElement.findElement(By.xpath("//input[@id='username-modal']")).sendKeys("test")
+
+  await seleniumElement.findElement(By.xpath("//input[@id='username-modal']")).sendKeys("user1")
 
   await seleniumElement.findElement(By.xpath("//input[@id='password-modal']")).click()
-  await seleniumElement.findElement(By.xpath("//input[@id='password-modal']")).sendKeys('123456789')
+  await seleniumElement.findElement(By.xpath("//input[@id='password-modal']")).sendKeys('password')
 
-  await seleniumElement.findElement(By.xpath("//button[contains(.,' Log in')]")).click()
+  await seleniumElement.findElement(By.xpath("//div[@id='login-modal']/div/div/div[2]/form/p/button")).click()
   await commands.wait.byPageToComplete();
   await commands.measure.stop();
+
   
   
  
