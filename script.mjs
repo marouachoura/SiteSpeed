@@ -41,23 +41,23 @@ export default async function (context, commands) {
  
  
  
-  await commands.measure.start('Open catalogue');
-  await commands.wait.byPageToComplete();
-  // await new Promise(resolve => setTimeout(resolve, 6000));
-  // const element = await seleniumElement.findElement(By.xpath("//*[@id='tabCatalogue']"));
-  // await commands.wait.until(ExpectedConditions.visibilityOf(element));
-  // await element.click();
-  // await seleniumElement.findElement(By.xpath("//*[@id='tabCatalogue']")).click()
-  await commands.navigate('http://front-end-autoinstrument-smetest.apps.aps.lab/category.html')
-  await commands.wait.byPageToComplete();
-  await commands.measure.stop();
+  // await commands.measure.start('Open catalogue');
+  // await commands.wait.byPageToComplete();
+  // // await new Promise(resolve => setTimeout(resolve, 6000));
+  // // const element = await seleniumElement.findElement(By.xpath("//*[@id='tabCatalogue']"));
+  // // await commands.wait.until(ExpectedConditions.visibilityOf(element));
+  // // await element.click();
+  // // await seleniumElement.findElement(By.xpath("//*[@id='tabCatalogue']")).click()
+  // await commands.navigate('http://front-end-autoinstrument-smetest.apps.aps.lab/category.html')
+  // await commands.wait.byPageToComplete();
+  // await commands.measure.stop();
  
-  await commands.measure.start('click on product');
-  // await seleniumElement.findElement(By.xpath("(//a[contains(text(),'View detail')])[2]")).click()
-  await commands.navigate('http://front-end-autoinstrument-smetest.apps.aps.lab/detail.html?id=3395a43e-2d88-40de-b95f-e00e1502085b')
+  // await commands.measure.start('click on product');
+  // // await seleniumElement.findElement(By.xpath("(//a[contains(text(),'View detail')])[2]")).click()
+  // await commands.navigate('http://front-end-autoinstrument-smetest.apps.aps.lab/detail.html?id=3395a43e-2d88-40de-b95f-e00e1502085b')
   
-  await commands.wait.byPageToComplete();
-  await commands.measure.stop();
+  // await commands.wait.byPageToComplete();
+  // await commands.measure.stop();
  
   // await commands.measure.start('Add to cart');
   // await seleniumElement.findElement(By.id("buttonCart")).click()
